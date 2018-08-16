@@ -58,7 +58,7 @@ variable "bucket_s3" {
 }
 
 variable "key_name" {
-  default = "wilton-rivendel"
+  default = "wilton"
 }
 
 variable "protocol" {
