@@ -19,7 +19,7 @@ jobs:
           command: ./terraform apply --auto-approve ./emr
       - run:
           name:  Terraform destroy
-          command: ./terraform --auto-approve ./emr
+          command: ./terraform destroy --auto-approve ./emr
           when: on_success
 
 workflows:
