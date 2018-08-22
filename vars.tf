@@ -1,3 +1,5 @@
+### Tags
+
 variable "app_name" {
   description = "Tag name to instances"
   default = "spark-dev-spot"
@@ -7,6 +9,20 @@ variable "environment" {
   description = "Tag environment to instances"
   default = "test"
 }
+
+
+### data source
+
+variable "name_vpc" {
+  default = "RivendelTestes"
+}
+
+variable "subnet_name" {
+  default = "subPriv"
+}
+
+
+### application
 
 variable "applications" {
   description = "Applications aws supported"
@@ -23,14 +39,6 @@ variable "termination_protection" {
 
 variable "keep_job" {
   default = "true"
-}
-
-variable "vpc_id" {
-  default = "vpc-a7aaa3de"
-}
-
-variable "subnet_id" {
-  default = "subnet-071e044f75e67429b"
 }
 
 variable "instance_type_core" {
@@ -58,7 +66,7 @@ variable "bucket_s3" {
 }
 
 variable "key_name" {
-  default = "wilton"
+  default = "wilton-rivendel"
 }
 
 variable "protocol" {
@@ -76,6 +84,8 @@ variable "to_port" {
 variable "range" {
   default = "172.16.0.0/12,10.8.0.0/16"
 }
+
+### config spot
 
 variable "bid_price_instance_spot" {
   default = "0.25"

@@ -2,11 +2,18 @@ provider "aws" {
   region     = "us-east-1"
 }
 
+
+module "data_source" {
+  source       = "modules/data_source"
+  name_vpc     = "${var.name_vpc}"
+  subnet_name  = "${var.subnet_name}"
+}
+
 module "security_group" {
   source      = "modules/security_group"
   environment = "${var.environment}"
   app_name    = "${var.app_name}"
-  vpc_id      = "${var.vpc_id}"
+  vpc_id      = "${module.data_source.vpc_id}"
   protocol    = "${var.protocol}"
   from_port   = "${var.from_port}"
   to_port     = "${var.to_port}"
@@ -27,8 +34,8 @@ module "elastic_map_reduce" {
   release_label                 = "${var.release_label}"
   termination_protection        = "${var.termination_protection}"
   keep_job                      = "${var.keep_job}"
-  vpc_id                        = "${var.vpc_id}"
-  subnet_id                     = "${var.subnet_id}"
+  vpc_id                        = "${module.data_source.vpc_id}"
+  subnet_id                     = "${module.data_source.subnet_ids[0]}"
   instance_type_core            = "${var.instance_type_core}"
   instance_number_cores         = "${var.instance_number_cores}"
   instance_type_master          = "${var.instance_type_master}"

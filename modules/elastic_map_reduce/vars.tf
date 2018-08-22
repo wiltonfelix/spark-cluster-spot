@@ -81,3 +81,11 @@ variable "aws_iam_autoscaling_role" {
 variable "instance_type_task" {
   default = ""
 }
+
+variable "min_scaling" {
+  default = ""
+}
+
+variable "max_scaling" {
+  default = ""
+}

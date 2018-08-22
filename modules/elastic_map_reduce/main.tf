@@ -90,7 +90,7 @@ resource "aws_emr_cluster" "emr-template-cluster" {
           }
         }
       }
-      ]    
+      ]
       }
 EOF
   }
@@ -99,8 +99,6 @@ EOF
 
   tags {
     Environment = "${var.environment}"
-    app         = "${var.app_name}"
-    env         = "${var.environment}"
     Name        = "${var.app_name}"
   }
 

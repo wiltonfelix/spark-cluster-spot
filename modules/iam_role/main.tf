@@ -150,7 +150,7 @@ resource "aws_iam_role" "iam_emr_autoscaling" {
         "Service": [
           "elasticmapreduce.amazonaws.com",
           "application-autoscaling.amazonaws.com"
-        ] 
+        ]
       },
       "Action": "sts:AssumeRole"
     }
