@@ -24,6 +24,10 @@ variable "subnet_name" {
 
 ### application
 
+variable "region" {
+  default = "us-east-1"
+}
+
 variable "applications" {
   description = "Applications aws supported"
   default = "Spark,Hive"

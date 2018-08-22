@@ -1,16 +1,16 @@
 provider "aws" {
-  region     = "us-east-1"
+  region     = "${var.region}"
 }
 
 
 module "data_source" {
-  source       = "modules/data_source"
+  source       = "../modules/data_source"
   name_vpc     = "${var.name_vpc}"
   subnet_name  = "${var.subnet_name}"
 }
 
 module "security_group" {
-  source      = "modules/security_group"
+  source      = "../modules/security_group"
   environment = "${var.environment}"
   app_name    = "${var.app_name}"
   vpc_id      = "${module.data_source.vpc_id}"
@@ -21,13 +21,13 @@ module "security_group" {
 }
 
 module "roles" {
-  source      = "modules/iam_role"
+  source      = "../modules/iam_role"
   app_name    = "${var.app_name}"
   environment = "${var.environment}"
 }
 
 module "elastic_map_reduce" {
-  source                        = "modules/elastic_map_reduce"
+  source                        = "../modules/elastic_map_reduce"
   app_name                      = "${var.app_name}"
   environment                   = "${var.environment}"
   applications                  = "${var.applications}"

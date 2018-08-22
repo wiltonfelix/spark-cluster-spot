@@ -1,0 +1,31 @@
+version: 2
+jobs:
+  test-code:
+    docker:
+      - image: hashicorp/packer
+    steps:
+      - checkout
+      - run:
+          name: Terraform init
+          command: ./terraform init ./emr
+
+      - run:
+          name: Terraform apply
+          command: ./terraform apply --auto-approve ./emr
+
+      - run:
+          name:  Terraform destroy
+          command: ./terraform --auto-approve ./emr
+          when: on_success
+
+workflows:
+  version: 2
+  agendaedu-test-by-commits:
+    jobs:
+      - test-code:
+          filters:
+            branches:
+              only:
+                - master
+            tags:
+              ignore: /.*/
