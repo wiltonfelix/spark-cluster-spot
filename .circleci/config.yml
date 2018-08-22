@@ -6,16 +6,20 @@ jobs:
     steps:
       - checkout
       - run:
+          name: Download terraform
+          command: wget https://releases.hashicorp.com/terraform/0.11.7/terraform_0.11.7_linux_amd64.zip
+      - run:
+          name: Unzip terraform binary
+          command: unzip terraform_0.11.7_linux_amd64.zip
+      - run:
           name: Terraform init
-          command: terraform init ./emr
-
+          command: ./terraform init ./emr
       - run:
           name: Terraform apply
-          command: terraform apply --auto-approve ./emr
-
+          command: ./terraform apply --auto-approve ./emr
       - run:
           name:  Terraform destroy
-          command: terraform --auto-approve ./emr
+          command: ./terraform --auto-approve ./emr
           when: on_success
 
 workflows:
