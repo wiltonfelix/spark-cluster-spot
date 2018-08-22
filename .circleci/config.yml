@@ -7,15 +7,15 @@ jobs:
       - checkout
       - run:
           name: Terraform init
-          command: ./terraform init ./emr
+          command: terraform init ./emr
 
       - run:
           name: Terraform apply
-          command: ./terraform apply --auto-approve ./emr
+          command: terraform apply --auto-approve ./emr
 
       - run:
           name:  Terraform destroy
-          command: ./terraform --auto-approve ./emr
+          command: terraform --auto-approve ./emr
           when: on_success
 
 workflows:
