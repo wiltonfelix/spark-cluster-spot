@@ -2,12 +2,12 @@
 
 variable "app_name" {
   description = "Tag name to instances"
-  default = "spark-git-spot"
+  default = "spark-git-spot-test"
 }
 
 variable "environment" {
   description = "Tag environment to instances"
-  default = "git"
+  default = "test-git"
 }
 
 
