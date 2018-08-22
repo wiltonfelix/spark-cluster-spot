@@ -1,0 +1,12 @@
+sudo: required
+
+language: go
+
+services:
+  - docker
+
+before_install:
+  - docker exec wget https://releases.hashicorp.com/terraform/0.11.7/terraform_0.11.7_linux_amd64.zip
+  - docker exec unzip terraform_0.11.7_linux_amd64.zip
+script:
+  - ./terraform init ./emr
