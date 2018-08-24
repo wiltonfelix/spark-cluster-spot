@@ -10,7 +10,6 @@ variable "environment" {
   default = "test-git"
 }
 
-
 ### data source
 
 variable "name_vpc" {

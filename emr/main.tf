@@ -2,6 +2,13 @@ provider "aws" {
   region     = "${var.region}"
 }
 
+terraform {
+  backend "s3" {
+    bucket = "infra-as-code-git"
+    key    = "data/emr"
+    region = "us-east-1"
+  }
+}
 
 module "data_source" {
   source       = "../modules/data_source"
