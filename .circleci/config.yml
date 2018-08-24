@@ -53,9 +53,9 @@ workflows:
       - destroy-test-code:
           requires:
             - test-code
-            filters:
-              branches:
-                only:
-                  - master
-              tags:
-                ignore: /.*/
+          filters:
+            branches:
+              only:
+                - master
+            tags:
+              ignore: /.*/
