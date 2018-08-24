@@ -28,7 +28,7 @@ jobs:
       - checkout
       - run:
           name: Download terraform
-          command: wget https://releases.hashicorp.com/terraform/0.11.7/terraform_0.11.7_linux_amd64.zi
+          command: wget https://releases.hashicorp.com/terraform/0.11.7/terraform_0.11.7_linux_amd64.zip
       - run:
           name: Unzip terraform binary
           command: unzip terraform_0.11.7_linux_amd64.zip
