@@ -41,7 +41,7 @@ jobs:
 
 workflows:
   version: 2
-  agendaedu-test-by-commits:
+  test-codo-will-git:
     jobs:
       - test-code:
           filters:
